@@ -1,0 +1,117 @@
+@import './sections.css';
+
+:root {
+  /* Core Master Palette */
+  --c-obsidian: #080808;
+  --c-charcoal: #141312;
+  --c-charcoal-elevated: #1c1a18;
+  --c-charcoal-border: #282420;
+  
+  --c-dark-bronze: #514431;
+  --c-bronze-shadow: #261c14;
+  --c-dark-brown: #38271F;
+  --c-leather: #241611;
+
+  --c-rose-gold: #B87956;
+  --c-rose-gold-light: #D99B77;
+  --c-rose-gold-bright: #F0BC98;
+  --c-rose-gold-dim: #8E5A3D;
+
+  --c-champagne-gold: #C8A46A;
+  --c-champagne-light: #E2C593;
+  --c-champagne-bright: #F7E2BC;
+
+  --c-warm-ivory: #F0E7D6;
+  --c-dial-cream: #E6D8C0;
+  --c-dial-shadow: #CBB99E;
+  --c-dial-text: #211915;
+  --c-dial-text-secondary: #58463B;
+
+  --c-soft-text: #D8CCBA;
+  --c-muted-text: #9E9182;
+  --c-faint-text: #695F55;
+
+  /* Typography */
+  --font-serif: 'Cinzel', 'Playfair Display', Georgia, serif;
+  --font-editorial: 'Cormorant Garamond', Garamond, Georgia, serif;
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  /* Shadows & Luster */
+  --shadow-watch: 0 35px 80px rgba(0, 0, 0, 0.85), 0 10px 30px rgba(81, 68, 49, 0.25);
+  --shadow-gold-glow: 0 0 25px rgba(200, 164, 106, 0.35);
+  --shadow-panel: -20px 0 50px rgba(0, 0, 0, 0.7);
+
+  /* Transitions */
+  --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset & Base Setup */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--c-obsidian);
+  color: var(--c-soft-text);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Luxury Leather & Metal Background Subtle Ambient Pattern */
+body {
+  background: 
+    radial-gradient(circle at 50% 45%, rgba(184, 121, 86, 0.08) 0%, rgba(8, 8, 8, 0) 65%),
+    radial-gradient(circle at 15% 15%, rgba(200, 164, 106, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(81, 68, 49, 0.07) 0%, transparent 45%),
+    linear-gradient(180deg, #090909 0%, #0c0b0a 50%, #070707 100%);
+  background-attachment: fixed;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--c-obsidian);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--c-dark-bronze);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--c-rose-gold);
+}
+
+/* Utility Animations */
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulseGoldGlow {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 0.95; transform: scale(1.04); }
+}
+
+@keyframes subtleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
